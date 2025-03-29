@@ -1,0 +1,289 @@
+/* CSS Variables for maintainability */
+:root {
+    --aged-paper: #e8d8b7;
+    --light-parchment: #f5e6cc;
+    --dark-wood: #6b4e31;
+    --olive-brown: #8a7b5e;
+    --terracotta: #d4a373;
+    --coffee-brown: #403227;
+    --floral-white: #fffaf0;
+    --dark-red: #8b0000;
+    --mustard-brown: #a68f63;
+    --shadow-light: rgba(107, 78, 49, 0.3);
+    --shadow-dark: rgba(107, 78, 49, 0.4);
+    --transition-ease: all 0.4s ease-in-out;
+}
+
+/* Reset default styles with a retro twist */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: var(--transition-ease);
+}
+
+/* Body with optimized Ghibli paper-and-forest vibe */
+body {
+    background: var(--aged-paper);
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    background-blend-mode: overlay;
+    background-size: cover;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    font-family: 'Lora', serif;
+    font-display: swap; /* Improve font loading */
+}
+
+/* Single optimized dust layer */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/light-dust.png');
+    background-size: 200px;
+    opacity: 0.1;
+    animation: dust-float 60s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes dust-float {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
+}
+
+/* Enchanted container with simplified effects */
+.enchanted-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+    background: var(--light-parchment);
+    border: 6px solid var(--dark-wood);
+    border-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png') 6 stretch;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.enchanted-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px var(--shadow-dark);
+}
+
+/* Title with refined animation */
+.title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 4.5rem;
+    color: var(--dark-wood);
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px var(--shadow-light);
+    animation: gentle-pulse 5s infinite alternate;
+}
+
+@keyframes gentle-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.03); }
+}
+
+/* Magic mirror with optimized effects */
+.magic-mirror {
+    background: var(--floral-white);
+    border: 4px solid var(--olive-brown);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(138, 123, 94, 0.4);
+}
+
+.magic-mirror:hover {
+    box-shadow: 0 8px 25px rgba(138, 123, 94, 0.5);
+}
+
+/* Scroll form with usability focus */
+.scroll-form {
+    padding: 20px;
+    background: url('https://www.transparenttextures.com/patterns/old-paper.png');
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-form:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Scroll label with subtle animation */
+.scroll-label {
+    font-family: 'Calligraffitti', cursive;
+    font-size: 1.6rem;
+    color: var(--coffee-brown);
+    margin-bottom: 12px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+/* Input with accessible focus states */
+.magic-input {
+    width: 100%;
+    padding: 15px;
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: var(--coffee-brown);
+    background: var(--floral-white);
+    border: 2px solid var(--olive-brown);
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(138, 123, 94, 0.2);
+}
+
+.magic-input:focus {
+    outline: 3px solid var(--terracotta);
+    border-color: var(--terracotta);
+    box-shadow: inset 0 2px 5px rgba(138, 123, 94, 0.2), 0 0 10px rgba(212, 163, 115, 0.4);
+}
+
+/* Button with simplified effects */
+.magic-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto 0;
+    padding: 15px;
+    font-family: 'Calligraffitti', cursive;
+    font-size: 1.4rem;
+    color: var(--floral-white);
+    background: var(--olive-brown);
+    border: 3px solid var(--dark-wood);
+    border-radius: 25px;
+    box-shadow: 0 5px 10px var(--shadow-light);
+    cursor: pointer;
+}
+
+.magic-button:hover {
+    background: var(--terracotta);
+    transform: translateY(-4px);
+    box-shadow: 0 7px 15px rgba(212, 163, 115, 0.5);
+}
+
+.magic-button:active {
+    transform: translateY(2px);
+}
+
+/* Story title with minimal animation */
+.story-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.8rem;
+    color: var(--dark-wood);
+    text-align: center;
+    margin: 30px 0;
+    letter-spacing: 2px;
+}
+
+/* Parchment with simplified effects */
+.parchment {
+    background: url('https://www.transparenttextures.com/patterns/old-parchment.png');
+    background-color: var(--floral-white);
+    border: 5px solid var(--dark-wood);
+    border-radius: 15px;
+    padding: 25px;
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: var(--coffee-brown);
+    box-shadow: 0 6px 18px var(--shadow-light);
+}
+
+/* Textarea with accessible focus */
+.magic-textarea {
+    width: 100%;
+    padding: 15px;
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: var(--coffee-brown);
+    background: var(--floral-white);
+    border: 2px solid var(--olive-brown);
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(138, 123, 94, 0.2);
+    resize: vertical;
+    min-height: 120px;
+}
+
+.magic-textarea:focus {
+    outline: 3px solid var(--terracotta);
+    border-color: var(--terracotta);
+    box-shadow: inset 0 2px 5px rgba(138, 123, 94, 0.2), 0 0 10px rgba(212, 163, 115, 0.3);
+}
+
+/* Error message with reduced animation */
+.parchment-error {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: var(--dark-red);
+    text-align: center;
+    background: var(--floral-white);
+    border: 3px solid var(--dark-red);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
+}
+
+/* Page curl with usability check */
+.page-curl {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, transparent 50%, rgba(230, 212, 185, 0.8) 50%);
+    box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 0 100%;
+    z-index: 10;
+}
+
+/* Forest spirits with reduced opacity */
+.forest-spirit {
+    position: absolute;
+    width: 12px;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: spirit-float 15s infinite linear;
+}
+
+/* Loader with centered positioning */
+.ghibli-loader {
+    width: 60px;
+    height: 60px;
+    margin: 20px auto;
+    position: relative;
+    display: none; /* Show only when needed */
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .title { font-size: 3.5rem; }
+    .enchanted-container { margin: 20px; padding: 15px; }
+    .magic-button { width: 180px; font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+    .title { font-size: 2.8rem; }
+    .story-title { font-size: 2.2rem; }
+    .scroll-label { font-size: 1.4rem; }
+    .magic-button { width: 160px; font-size: 1.1rem; }
+}

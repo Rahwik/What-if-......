@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enchanted Fairy Tale Weaver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="enchanted-container">
+        <h1 class="title">Enchanted Fairy Tale Weaver</h1>
+        <div class="magic-mirror">
+            <form method="post" class="scroll-form">
+                <label for="scenario" class="scroll-label">Whisper Your "What If" Wish:</label><br>
+                <input type="text" id="scenario" name="scenario" class="magic-input" placeholder="e.g., What if stars sang lullabies?"><br><br>
+                <input type="hidden" name="action" value="generate">
+                <button type="submit" class="magic-button">Weave My Tale</button>
+            </form>
+        </div>
+
+        {% if error %}
+        <p class="error parchment-error">{{ error }}</p>
+        {% endif %}
+
+        {% if proactive_story %}
+        <h2 class="story-title">A Gift from the Fae</h2>
+        <div class="story parchment">{{ proactive_story }}</div>
+        {% endif %}
+
+        {% if story %}
+        <h2 class="story-title">Your Enchanted Tale: <span class="scenario-text">{{ scenario }}</span></h2>
+        <div class="story parchment">{{ story }}</div>
+        <form method="post" class="scroll-form refine-form">
+            <label for="feedback" class="scroll-label">Speak to the Weaver:</label><br>
+            <textarea id="feedback" name="feedback" rows="4" cols="50" class="magic-textarea" placeholder="e.g., Add a dragon with emerald wings"></textarea><br>
+            <input type="hidden" name="story_id" value="{{ story_id }}">
+            <input type="hidden" name="action" value="refine">
+            <button type="submit" class="magic-button refine-button">Refine My Tale</button>
+        </form>
+        {% endif %}
+    </div>
+    <div class="fairy-dust"></div>
+    <a href="/next_page" class="magic-button">Next Page</a>
+</body>
+</html>
