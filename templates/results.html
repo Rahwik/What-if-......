@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Story Slideshow</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    .slideshow-container {
+      max-width: 600px;
+      position: relative;
+      margin: auto;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Enjoy Your Story</h2>
+  <div class="slideshow-container">
+    {% for img in images %}
+    <img class="slides" src="{{ img }}" style="display: none;">
+    {% endfor %}
+  </div>
+
+  <audio id="audio" controls>
+    <source src="{{ audio_file }}" type="audio/mpeg">
+  </audio>
+
+  <script>
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("slides");
+    let audio = document.getElementById("audio");
+    let slideInterval;
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex].style.display = "block";
+      slideIndex = (slideIndex + 1) % slides.length;
+    }
+
+    audio.onloadedmetadata = function() {
+      if (slides.length > 0) {
+        let slideDuration = (audio.duration / slides.length) * 1000;
+        showSlides();
+        slideInterval = setInterval(showSlides, slideDuration);
+      }
+    };
+
+    audio.onplay = function () {
+      if (!slideInterval && slides.length > 0) {
+        let slideDuration = (audio.duration / slides.length) * 1000;
+        slideInterval = setInterval(showSlides, slideDuration);
+      }
+    };
+  </script>
+</body>
+</html>

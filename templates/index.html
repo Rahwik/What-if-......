@@ -38,9 +38,9 @@
             <input type="hidden" name="action" value="refine">
             <button type="submit" class="magic-button refine-button">Refine My Tale</button>
         </form>
+        <a href="{{ url_for('next_page') }}" class="next-button">Next &raquo;</a>
         {% endif %}
     </div>
     <div class="fairy-dust"></div>
-    <a href="/next_page" class="magic-button">Next Page</a>
 </body>
 </html>

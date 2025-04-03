@@ -182,7 +182,21 @@ body::before {
     margin: 30px 0;
     letter-spacing: 2px;
 }
+.next-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
+.next-button:hover {
+    background-color: #0056b3;
+}
 /* Parchment with simplified effects */
 .parchment {
     background: url('https://www.transparenttextures.com/patterns/old-parchment.png');
